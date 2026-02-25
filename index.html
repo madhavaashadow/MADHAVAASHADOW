@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<meta name="description" content="Madhavaa Shadow Marble Experts - Italian Marble, Granite, Tiles Fitting Professional Service. Contact 7081721056">
+<meta name="keywords" content="Marble fitting, Granite installation, Tiles work, Italian marble, Marble contractor">
+<meta name="author" content="Madhavaa Shadow">
+
+<title>Madhavaa Shadow | Marble & Granite Experts</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
+
+body{
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+}
+
+/* NAVBAR */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+}
+
+.logo{
+font-size:22px;
+font-weight:700;
+letter-spacing:2px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+/* HERO */
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.hero button{
+padding:15px 35px;
+background:#25D366;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+}
+
+/* SERVICES */
+.services,.gallery,.booking,.payment,.map{
+padding:80px 10%;
+text-align:center;
+}
+
+.card-container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:rgba(255,255,255,0.1);
+padding:30px;
+border-radius:15px;
+width:250px;
+backdrop-filter:blur(10px);
+transition:0.3s;
+}
+
+.card:hover{transform:translateY(-10px);}
+
+/* GALLERY */
+.gallery img{
+width:280px;
+height:200px;
+object-fit:cover;
+border-radius:15px;
+margin:15px;
+}
+
+/* FORM */
+.form-box{
+background:white;
+color:#333;
+padding:40px;
+border-radius:20px;
+max-width:450px;
+margin:auto;
+}
+
+input, textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+button{
+padding:12px 25px;
+background:#2c5364;
+color:white;
+border:none;
+border-radius:25px;
+cursor:pointer;
+}
+
+/* PAYMENT */
+.qr{
+margin-top:20px;
+width:200px;
+}
+
+/* MAP */
+iframe{
+width:100%;
+height:350px;
+border-radius:20px;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+background:#0a192f;
+margin-top:50px;
+}
+
+/* FLOATING WHATSAPP */
+.whatsapp-float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+@media(max-width:768px){
+.hero h1{font-size:32px;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">MADHAVAA SHADOW</div>
+<div>
+<a href="#services">Services</a>
+<a href="#gallery">Gallery</a>
+<a href="#booking">Booking</a>
+<a href="#payment">Advance</a>
+<a href="#map">Location</a>
+</div>
+</nav>
+
+<section class="hero">
+<h1>Luxury Marble & Granite Installation</h1>
+<p>Italian Finish | Premium Quality | Trusted Service</p>
+<button onclick="window.location.href='#booking'">Book Now</button>
+<p style="margin-top:20px;">📞 7081721056</p>
+</section>
+
+<section id="services" class="services">
+<h2>Our Services</h2>
+<div class="card-container">
+<div class="card">Italian Marble Fitting</div>
+<div class="card">Granite Installation</div>
+<div class="card">Wall & Floor Tiles</div>
+<div class="card">Luxury Polish Finish</div>
+</div>
+</section>
+
+<section id="gallery" class="gallery">
+<h2>Our Work</h2>
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+<img src="https://images.unsplash.com/photo-1618220179428-22790b461013">
+<img src="https://images.unsplash.com/photo-1600607687644-c7f34b5b7f87">
+</section>
+
+<section id="booking" class="booking">
+<h2>Book Marble Work</h2>
+<div class="form-box">
+<input type="text" id="name" placeholder="Your Name">
+<input type="text" id="phone" placeholder="Your Phone">
+<input type="text" id="location" placeholder="Location">
+<textarea id="details" placeholder="Work Details"></textarea>
+<button onclick="sendWhatsApp()">Send on WhatsApp</button>
+</div>
+</section>
+
+<section id="payment" class="payment">
+<h2>Pay Advance (UPI)</h2>
+<p>Scan & Pay Advance Amount</p>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=yourupi
+<p>UPI ID: 7081721056@upi&pn=MadhavaaShadow&cu=INR" class="qr">
+</section>
+
+<section id="map" class="map">
+<h2>UTTER PRADESH ,DISTRICT BASTI </H2>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.146550..." allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+<footer>
+ Madhavaa Shadow Marble Experts | Contact: 7081721056
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/917081721056" target="_blank">
+💬 Chat
+</a>
+
+<script>
+function sendWhatsApp(){
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let location=document.getElementById("location").value;
+let details=document.getElementById("details").value;
+
+if(name==""||phone==""){
+alert("Please Fill Required Details");
+return;
+}
+
+let message="New Marble Inquiry:%0A"
++"Name: "+name+"%0A"
++"Phone: "+phone+"%0A"
++"Location: "+location+"%0A"
++"Details: "+details;
+
+window.open("https://wa.me/917081721056?text="+message,"_blank");
+}
+</script>
+
+</body>
+</html>
