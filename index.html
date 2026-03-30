@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDHAVAA SHADOW | Wholesale Namkeen & Bakery</title>
+    <!-- PDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Color Palette: Red, Orange, Blue, Brown, Yellow, White */
+        :root { 
+            --red: #D63031;      
+            --orange: #E67E22;   
+            --blue: #0984E3;     
+            --brown: #6D4C41;    
+            --yellow: #F1C40F;   
+            --white: #FFFFFF;    
+            --bg-light: #FDFEFE;
+            --dark-text: #2D3436;
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            margin: 0; 
+            background-color: var(--bg-light); 
+            color: var(--dark-text);
+            scroll-behavior: smooth;
+        }
+
+        /* Top Header */
+        header { 
+            background: var(--white); 
+            padding: 25px; 
+            text-align: center; 
+            border-bottom: 6px solid var(--red);
+        }
+        .logo-text { 
+            font-size: 45px; 
+            font-weight: 800; 
+            color: var(--blue); 
+            letter-spacing: 2px;
+            margin: 0;
+        }
+        .logo-text span { color: var(--red); }
+        .sub-tagline { color: var(--brown); font-weight: 600; margin-top: 5px; font-size: 18px; }
+
+        /* Navigation */
+        nav { 
+            background: var(--blue); 
+            padding: 15px; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            text-align: center;
+        }
+        nav a { 
+            color: var(--white); 
+            text-decoration: none; 
+            margin: 0 15px; 
+            font-size: 16px; 
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        nav a:hover { color: var(--yellow); }
+
+        /* Hero Banner */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1549445100-c9a1738c823b?w=1200');
+            height: 300px; 
+            background-size: cover; 
+            background-position: center; 
+            color: var(--white); 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center;
+            border-bottom: 8px solid var(--yellow);
+        }
+        .hero h1 { font-size: 45px; margin: 0; }
+        .hero p { font-size: 20px; background: var(--red); padding: 5px 15px; border-radius: 5px; margin-top: 10px; }
+
+        .container { max-width: 1200px; margin: auto; padding: 40px 20px; }
+        
+        .section-title { 
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--red);
+            font-weight: 800;
+            text-decoration: underline;
+        }
+
+        /* Product Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .product-card { 
+            background: var(--white); 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+            border: 2px solid #eee;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; }
+        .product-info { padding: 20px; }
+        .product-info h3 { color: var(--blue); margin: 0; font-size: 22px; }
+        .price-tag { font-size: 26px; font-weight: 800; color: var(--red); margin: 15px 0; }
+
+        /* Buttons */
+        .btn { 
+            background: var(--orange); 
+            color: var(--white); 
+            border: none; 
+            padding: 12px 25px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: 700; 
+            width: 100%;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .btn:hover { background: var(--brown); }
+
+        /* Bulk Order Box */
+        .bulk-box { 
+            background: var(--yellow); 
+            padding: 35px; 
+            border-radius: 20px; 
+            margin: 50px 0; 
+            border: 4px dashed var(--red);
+            text-align: center;
+        }
+        .bulk-box h2 { color: var(--red); margin-top: 0; font-size: 30px; }
+        .bulk-box p { font-size: 18px; font-weight: 600; color: var(--brown); margin: 10px 0; }
+        .bulk-badge { background: var(--red); color: white; padding: 10px 20px; border-radius: 50px; font-weight: 800; display: inline-block; margin: 15px 0; }
+
+        /* Order Form */
+        .order-form { 
+            background: var(--white); 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            border: 2px solid var(--blue);
+        }
+        input, textarea { 
+            width: 100%; padding: 15px; margin: 10px 0; border: 1px solid #ccc; 
+            border-radius: 8px; box-sizing: border-box; font-size: 16px;
+        }
+
+        /* Footer */
+        footer { 
+            background: var(--brown); 
+            color: var(--white); 
+            padding: 40px 20px; 
+            text-align: center; 
+        }
+        .footer-note { 
+            background: rgba(255,255,255,0.1); 
+            padding: 15px; 
+            border-radius: 10px; 
+            margin-top: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            border-left: 5px solid var(--yellow);
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-text">MADHAVAA <span>SHADOW</span></div>
+    <div class="sub-tagline">थोक विक्रेता: नमकीन, ब्रेड एवं टोस्ट</div>
+</header>
+
+<nav>
+    <a href="#">होम</a>
+    <a href="#products">प्रोडक्ट्स</a>
+    <a href="#bulk">बड़े आर्डर</a>
+    <a href="#checkout">ऑर्डर करें</a>
+</nav>
+
+<div class="hero">
+    <h1>स्वाद और शुद्धता का भरोसा</h1>
+    <p>बस्ती (UP) का प्रमुख होलसेल डिस्ट्रीब्यूटर</p>
+</div>
+
+<div class="container">
+    
+    <h2 class="section-title" id="products">कैटलॉग</h2>
+    <div class="grid">
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=400" alt="Sev">
+            <div class="product-info">
+                <h3>बारीक सेव नमकीन</h3>
+                <div class="price-tag">₹120/kg</div>
+                <button class="btn" onclick="addToCart('बारीक सेव', 100)">कार्ट में डालें</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1549445100-c9a1738c823b?w=400" alt="Mix">
+            <div class="product-info">
+                <h3>स्पेशल मिक्स नमकीन</h3>
+                <div class="price-tag">₹130/kg</div>
+                <button class="btn" onclick="addToCart('मिक्स नमकीन', 120)">कार्ट में डालें</button>
+            </div>
+        </div>
+        <!-- Spelling Corrected: CHURA -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1618210103738-957262c5e533?w=400" alt="Chura">
+            <div class="product-info">
+                <h3>CHURA MASALA नमकीन</h3>
+                <div class="price-tag">₹120/kg</div>
+                <button class="btn" onclick="addToCart('चूड़ा मसाला', 90)">कार्ट में डालें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bulk Order Section -->
+    <div class="bulk-box" id="bulk">
+        <h2>🚀 बड़े ऑर्डर्स (Bulk Orders) के लिए संपर्क करें</h2>
+        <p>शादी, उत्सव या दुकान के लिए भारी मात्रा में माल की आवश्यकता है?</p>
+        <div class="bulk-badge">₹5000+ के ऑर्डर पर 5% की सीधी छूट!</div>
+        <p style="font-weight: 800; font-size: 22px; color: var(--red);">बड़े आर्डर के लिए हमें अभी कॉल करें: 7081573977</p>
+        <button class="btn" style="width: auto; padding: 15px 40px; background: var(--blue);" onclick="location.href='tel:7081573977'">डायरेक्ट कॉल करें</button>
+    </div>
+
+    <h2 class="section-title" id="checkout">बिलिंग सेक्शन</h2>
+    <div class="order-form">
+        <div id="cart-list" style="margin-bottom: 20px; padding: 15px; background: #f9f9f9; border-radius: 10px; border: 1px dashed var(--blue);">
+            कार्ट अभी खाली है।
+        </div>
+        <input type="text" id="custName" placeholder="आपका नाम / दुकान का नाम">
+        <input type="tel" id="custPhone" placeholder="WhatsApp नंबर">
+        <textarea id="address" placeholder="डिलीवरी का पूरा पता" rows="3"></textarea>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+            <button class="btn" style="background: var(--blue);" onclick="generatePDF()">PDF बिल डाउनलोड</button>
+            <button class="btn" style="background: #25D366;" onclick="sendWhatsApp()">WhatsApp ऑर्डर</button>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p><b>MADHAVAA SHADOW</b> &copy; 2026 | बस्ती, उत्तर प्रदेश</p>
+    <p>मोबाइल: 7081721056</p>
+    <div class="footer-note">
+        <b>विशेष सूचना:</b> हम छोटे ऑर्डर भी लेते हैं, लेकिन ₹5000 से ऊपर के ऑर्डर पर आपको थोक दर के साथ 5% एक्स्ट्रा डिस्काउंट मिलता है। बड़े आर्डर के लिए कॉल करके रेट कम करवा सकते हैं।
+    </div>
+</footer>
+
+<script>
+    let cart = [];
+    const DISCOUNT_LIMIT = 5000;
+
+    function addToCart(name, price) {
+        cart.push({name, price});
+        updateCart();
+        alert(name + " कार्ट में जुड़ गया है!");
+    }
+
+    function updateCart() {
+        const list = document.getElementById('cart-list');
+        if(cart.length === 0) {
+            list.innerHTML = "कार्ट अभी खाली है।";
+            return;
+        }
+        let subtotal = cart.reduce((s, i) => s + i.price, 0);
+        let discount = subtotal >= DISCOUNT_LIMIT ? (subtotal * 0.05) : 0;
+        let total = subtotal - discount;
+
+        list.innerHTML = `<b>आइटम्स:</b><br>` + 
+            cart.map((item, i) => `${i+1}. ${item.name} - ₹${item.price}`).join('<br>') + 
+            `<hr>` +
+            `<p>Subtotal: ₹${subtotal}</p>` +
+            (discount > 0 ? `<p style="color:red">Discount (5%): -₹${discount.toFixed(2)}</p>` : "") +
+            `<p style="font-size:22px; font-weight:800; color:var(--blue);">Total: ₹${total.toFixed(2)}</p>`;
+    }
+
+    function generatePDF() {
+        if(cart.length === 0) { alert("कार्ट खाली है!"); return; }
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.text("MADHAVAA SHADOW INVOICE", 20, 20);
+        doc.text(`Customer: ${document.getElementById('custName').value}`, 20, 35);
+        let y = 50;
+        cart.forEach((item, i) => {
+            doc.text(`${i+1}. ${item.name} --- ₹${item.price}`, 20, y);
+            y += 10;
+        });
+        doc.save("MADHAVAA_Shadow_Order.pdf");
+    }
+
+    function sendWhatsApp() {
+        if(cart.length === 0) { alert("कार्ट खाली है!"); return; }
+        const name = document.getElementById('custName').value;
+        const phone = "917081573977";
+        let subtotal = cart.reduce((s, i) => s + i.price, 0);
+        let discount = subtotal >= DISCOUNT_LIMIT ? (subtotal * 0.05) : 0;
+        let total = subtotal - discount;
+
+        let msg = `नमस्ते MADHAVAA SHADOW! मेरा ऑर्डर:%0a`;
+        cart.forEach((item, i) => msg += `${i+1}. ${item.name} - ₹${item.price}%0a`);
+        msg += `%0a*Total: ₹${total.toFixed(2)}*%0aग्राहक: ${name}%0aपता: ${document.getElementById('address').value}`;
+        window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+    }
+</script>
+
+</body>
+</html>   
